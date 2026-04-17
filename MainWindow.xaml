@@ -381,25 +381,27 @@
                                             
                                             <TextBlock Text="AI 建议" FontSize="14" FontWeight="SemiBold" Margin="0,0,0,10" />
                                             
-                                            <ItemsControl ItemsSource="{Binding Recommendations}" Margin="0,0,0,0">
-                                                <ItemsControl.ItemTemplate>
-                                                    <DataTemplate>
-                                                        <Border BorderBrush="#E0E0E0" BorderThickness="1" CornerRadius="4" Margin="0,0,0,10" Padding="15">
-                                                            <StackPanel>
-                                                                <StackPanel Orientation="Horizontal">
-                                                                    <TextBlock Text="{Binding Action}" FontWeight="SemiBold" FontSize="14" />
-                                                                    <TextBlock Text="{Binding Risk}" FontSize="12" Foreground="#666666" Margin="10,0,0,0" />
+                                            <ScrollViewer Height="400" VerticalScrollBarVisibility="Auto">
+                                                <ItemsControl ItemsSource="{Binding Recommendations}" Margin="0,0,0,0">
+                                                    <ItemsControl.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Border BorderBrush="#E0E0E0" BorderThickness="1" CornerRadius="4" Margin="0,0,0,10" Padding="15">
+                                                                <StackPanel>
+                                                                    <StackPanel Orientation="Horizontal">
+                                                                        <TextBlock Text="{Binding Action}" FontWeight="SemiBold" FontSize="14" />
+                                                                        <TextBlock Text="{Binding Risk}" FontSize="12" Foreground="#666666" Margin="10,0,0,0" />
+                                                                    </StackPanel>
+                                                                    <TextBlock Text="{Binding Reason}" FontSize="12" Foreground="#666666" Margin="0,5,0,0" />
+                                                                    <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                                                                        <Button Content="一键执行" Command="{Binding DataContext.AcceptSuggestionCommand, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" CommandParameter="{Binding}" Width="100" Height="32" Margin="0,0,10,0" Background="#0078D7" Foreground="White" BorderThickness="0" />
+                                                                        <Button Content="忽略" Command="{Binding DataContext.DismissSuggestionCommand, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" CommandParameter="{Binding}" Width="80" Height="32" Background="#F2F2F7" Foreground="#333333" BorderThickness="0" />
+                                                                    </StackPanel>
                                                                 </StackPanel>
-                                                                <TextBlock Text="{Binding Reason}" FontSize="12" Foreground="#666666" Margin="0,5,0,0" />
-                                                                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
-                                                                    <Button Content="一键执行" Command="{Binding DataContext.AcceptSuggestionCommand, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" CommandParameter="{Binding}" Width="100" Height="32" Margin="0,0,10,0" Background="#0078D7" Foreground="White" BorderThickness="0" />
-                                                                    <Button Content="忽略" Command="{Binding DataContext.DismissSuggestionCommand, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" CommandParameter="{Binding}" Width="80" Height="32" Background="#F2F2F7" Foreground="#333333" BorderThickness="0" />
-                                                                </StackPanel>
-                                                            </StackPanel>
-                                                        </Border>
-                                                    </DataTemplate>
-                                                </ItemsControl.ItemTemplate>
-                                            </ItemsControl>
+                                                            </Border>
+                                                        </DataTemplate>
+                                                    </ItemsControl.ItemTemplate>
+                                                </ItemsControl>
+                                            </ScrollViewer>
                                         </StackPanel>
                                     </Border>
                                     
